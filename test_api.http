@@ -1,0 +1,28 @@
+### Crear un nuevo paciente (Prueba de Efecto Espejo)
+POST http://localhost:8080/api/pacientes
+Content-Type: application/json
+
+{
+  "nombre": "David Analista Test",
+  "edad": 30,
+  "sexo": "Masculino",
+  "domicilio": "Calle Principal 123",
+  "telefono": "555-1234",
+  "motivoConsulta": "Limpieza general y revisión de ortodoncia",
+  "antecedentesMedicos": {
+    "diabetes": false,
+    "hipertension": true,
+    "alergias": ["Polen", "Penicilina"],
+    "cirugias_previas": "Ninguna"
+  },
+  "exploracionFisica": {
+    "ta": "120/80",
+    "fc": "75 lpm",
+    "temp": "36.5"
+  },
+  "odontograma": {
+    "18": "Caries profunda",
+    "11": "Sano",
+    "21": "Resina en buen estado"
+  }
+}
