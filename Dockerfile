@@ -1,7 +1,8 @@
 # Fase 1: Compilar la aplicación con Maven y Java 17 (Temurin)
 FROM maven:3.8.6-eclipse-temurin-17 AS build
 COPY . .
-RUN mvn clean package -DskipTests
+# Forzamos a Maven a ignorar la fase de ejecución del frontend-maven-plugin
+RUN mvn clean package -DskipTests -Dplugins.frontend.skip=true
 
 # Fase 2: Crear el contenedor ligero de ejecución con Java 17
 FROM eclipse-temurin:17-jre-alpine
