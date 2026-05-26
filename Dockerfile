@@ -1,10 +1,10 @@
-# Fase 1: Compilar la aplicación con Maven y Java 17
-FROM maven:3.8.5-openjdk-17 AS build
+# Fase 1: Compilar la aplicación con Maven y Java 17 (Temurin)
+FROM maven:3.8.6-eclipse-temurin-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Fase 2: Crear el contenedor ligero de ejecución
-FROM openjdk:17-jdk-slim
+# Fase 2: Crear el contenedor ligero de ejecución con Java 17
+FROM eclipse-temurin:17-jre-alpine
 COPY --from=build /target/dental-backend-0.0.1-SNAPSHOT.jar dental-backend.jar
 
 # Exponer el puerto que Render le dará dinámicamente
