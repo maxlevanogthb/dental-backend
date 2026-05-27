@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         // 1. Agregamos /api/sistema/** a las rutas libres
-                        .requestMatchers("/api/auth/**", "/api/licencia/**", "/api/sistema/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/api/licencia/**", "/api/sistema/**", "/public/health").permitAll()
                         
                         // 2. Protegemos TODA la demás API con Token
                         .requestMatchers("/api/**").authenticated()
